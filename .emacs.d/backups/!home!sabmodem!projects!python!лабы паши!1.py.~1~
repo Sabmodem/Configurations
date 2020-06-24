@@ -1,0 +1,11 @@
+infile = open('input.txt')
+
+for _ in range(3):
+        i = infile.readline()   # Срезаем три первые строки
+
+text  = infile.readlines()      # Читаем все строки в переменную
+out = []                        # Это выходной список, содержит списки с данными
+for i in text:
+        tmp = i.split(';')      # Разбиваем строку по символу ';'
+        out.append([tmp[0],tmp[2],tmp[3][:len(tmp[3])-1]]) # добавляем в выходной список нужные данные и срезаем символ новой строки
+print(out)

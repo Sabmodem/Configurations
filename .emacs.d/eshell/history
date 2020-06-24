@@ -1,0 +1,16 @@
+ls
+cd projects/
+cd repo/
+cd Projects/
+git status
+exit
+python main.py 
+exit
+gdb
+exit
+python 1.py 
+python 1.py 
+python 1.py 
+exit
+python 1.py 
+exit

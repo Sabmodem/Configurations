@@ -1,0 +1,51 @@
+
+;;color-theme
+(add-to-list 'load-path "~/.emacs.d/color-theme/")
+(require 'color-theme)
+(color-theme-initialize)
+(setq color-theme-is-global t)
+(color-theme-charcoal-black)
+
+;;yasnippet
+(add-to-list 'load-path "~/.emacs.d/yasnippet-0.6.1c")
+(require 'yasnippet)
+(yas/initialize)
+(yas/load-directory "~/.emacs.d/yasnippet-0.6.1c/snippets/text-mode/")
+
+;;linum+
+(add-to-list 'load-path "~/.emacs.d/linum+")
+(require 'linum+)
+(setq linum-format "%d ")
+(global-linum-mode 1)
+
+;;ido
+(require 'ido)
+(ido-mode t)
+(setq ido-enable-flex-matching t)
+
+;;auto-complete
+(add-to-list 'load-path "~/.emacs.d/auto-complete-master")
+(require 'auto-complete-config)
+(ac-config-default)
+(add-to-list 'ac-dictionary-directories "~/.emacs.d/auto-complete-master/dict")
+(setq ac-auto-start        t)
+(setq ac-auto-show-menu    t)
+(global-auto-complete-mode t)
+(add-to-list 'ac-modes   'lisp-mode)
+(add-to-list 'ac-sources 'ac-source-semantic) ;; искать автодополнения в CEDET
+(add-to-list 'ac-sources 'ac-source-variables) ;; среди переменных
+(add-to-list 'ac-sources 'ac-source-functions) ;; в названиях функций
+(add-to-list 'ac-sources 'ac-source-dictionary) ;; в той папке где редактируемый буфер
+(add-to-list 'ac-sources 'ac-source-words-in-all-buffer) ;; по всему буферу
+(add-to-list 'ac-sources 'ac-source-files-in-current-dir)
+
+;;speedbar
+(add-to-list 'load-path "~/.emacs.d/speedbar/")
+(require 'sr-speedbar)
+(global-set-key (kbd "<f12>") 'sr-speedbar-toggle)
+
+(setq package-archives '(("elpa" . "http://tromey.com/elpa/")
+                         ("gnu" . "http://elpa.gnu.org/packages/")
+                         ("marmalade" . "http://marmalade-repo.org/packages/")))
+
+(provide 'plugins)

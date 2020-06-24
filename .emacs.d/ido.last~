@@ -1,0 +1,41 @@
+;;; -*- coding: utf-8 -*-
+
+;; ----- ido-last-directory-list -----
+(
+ ("/home/sabmodem/projects/python/" . "Timer/")
+ ("/home/sabmodem/projects/" . "python/")
+ ("/home/sabmodem/.emacs.d/" . "Settings/")
+ ("/home/sabmodem/" . ".emacs.d/")
+)
+
+;; ----- ido-work-directory-list -----
+(
+ "/home/sabmodem/.emacs.d/Settings/"
+ "/home/sabmodem/projects/python/Timer/"
+)
+
+;; ----- ido-work-file-list -----
+(
+ "init-key-bindings.el"
+ "other.el"
+ "main.py"
+ "timer.py"
+)
+
+;; ----- ido-dir-file-cache -----
+(
+ ("/home/sabmodem/" (24256 21161 150855 502000) ".local/" ".xsession-errors" "Баскетбол.odt" "#.xinitrc#" ".viminfo" ".emacs.d/" "my.txt" "Novy_textovy_dokument" ".xinit" ".config/" ".cache/" "восстановленное/" ".vim/" "Батины конспекты/" ".nv/" ".bash_history" ".bash_profile" "text.txt" ".bash_logout" ".gnupg/" ".gitconfig" "Untitled 1.odt" ".ICEauthority" ".mozilla/" "Прыгучесть.odt" "Desktop/" "Новая папка/" "./" "../" "builds/" "a.txt" "ОФП.odt" ".pki/" "Pictures/" "projects/" "mnt/" ".kde4/" ".xinitrc" "Загрузки/" "Downloads/" ".bashrc" "Untitled 3.odt" "Novy_textovy_dokument.cpp" "злоебучая учеба/" "Виды бросков.odt" ".Xauthority")
+
+ ("/home/sabmodem/.emacs.d/Settings/" (24256 20821 744200 114000) "plugins.el" "other.el" "./" "../" "init-key-bindings.el")
+
+ ("/home/sabmodem/.emacs.d/" (24256 20823 954200 40000) "backups/" "ido.last" "auto-save-list/" "init.el" "#init.el#" "eshell/" "./" "Settings/" "../" "ac-comphist.dat" "elpa/" "network-security.data" "snippets/")
+
+ ("/home/sabmodem/projects/python/Timer/" (24255 63832 590693 369000) "Examples/" "__pycache__/" "game.py" "./" "#timer.py#" "../" "main.py" "timer.py")
+
+ ("/home/sabmodem/projects/python/" (24250 16245 823144 680000) "поиск по вк/" "ascii art/" "Градиент/" "2/" "3/" "лаб1/" "Timer/" "turtle/" "./" "../" "tetris/" "лабы паши/")
+
+ ("/home/sabmodem/projects/" (24233 49786 636255 805000) "python/" "repo/" "C++/" "./" "../" "сайты/" "acmp/" "nasm/")
+)
+
+;; ----- ido-unc-hosts-cache -----
+t

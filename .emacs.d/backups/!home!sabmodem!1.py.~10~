@@ -1,0 +1,13 @@
+import vlc
+media = vlc.MediaPlayer('test')
+media.play()
+
+# Instance = vlc.Instance('--fullscreen')
+# player = Instance.media_player_new()
+# media = Instance.media_new('https://s244iva.storage.yandex.net/get-mp3/2652f09de2fa76cfcf01cabd4972e5d2/0005a6a36ee5ffd0/rmusic/U2FsdGVkX19JFxfthn-9tKAHxm2q18aPuKf9IYaELg05BcRnkWQJqseQNj0LyUtnFbX-14CqAE0Ccb-bfLH1DH5wUal8IDWChCLHgIpx20M/1e4b0aecbcd71a0a9a146630da8b0a9e5189134369b106cfa837bf92123e0610?track-id=24945454&play=false')
+# media.get_mrl()
+# player.set_media(media)
+# player.play()
+while True:
+
+     pass

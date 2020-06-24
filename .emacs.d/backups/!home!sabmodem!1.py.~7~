@@ -1,0 +1,11 @@
+import requests
+import vlc
+
+testaudio = open('test.mp3','wb')
+
+
+# req = requests.get('https://s65iva.storage.yandex.net/get-mp3/4acf751ea4638ff572a9d95e32457bbd/0005a694e1de418b/rmusic/U2FsdGVkX19qHYkmWOpisjCZ-MQ1-BJKIFzJcBtjx_Fc49Dq3qp5x7fh1osTnKla3v9tdXvKV7f7aafAmO4upg/c4dcdaf7a12a4f68204138677f50fce099b9faa762fb99e5299122a9bc4295aa?track-id=2786711&play=false')
+# testaudio.write(req.content)
+
+media = vlc.MediaPlayer('test.mp3')
+media.play()

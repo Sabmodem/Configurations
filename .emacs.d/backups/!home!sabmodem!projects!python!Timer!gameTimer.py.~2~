@@ -1,0 +1,66 @@
+import pygame
+from time import time
+
+pygame.init()
+pygame.display.set_caption('timer')
+screen = pygame.display.set_mode((360,160))
+font = pygame.font.SysFont('Consolas',36)
+color_bg = (255,255,205)
+color_fg = (0,0,55)
+screen.fill(color_bg)
+pygame.draw.rect(screen, (255, 255, 255), (0, 0, 360, 160))
+
+text = ''
+results = []
+coordRes = 80
+
+startScript = 0
+run = True
+seconds = 0
+stop = 0
+
+while True:
+    if startScript == 0:
+        startScript = time()
+    for e in pygame.event.get():
+        if e.type == pygame.QUIT:
+            pygame.quit()
+        if e.type == pygame.KEYUP:
+            if e.key == pygame.K_SPACE:
+                if run == True:
+                    run = False
+                    stop = time()
+                else:
+                    run = True
+                    if stop != 0:
+                        startScript += time() - stop
+            if e.key == pygame.K_BACKSPACE:
+                results.append(text)
+                screen.blit(font.render(text,True,color_fg),(100,coordRes))
+                coordRes += 20
+            if e.key == pygame.K_ESCAPE:
+                run = False
+                startScript = 0
+                seconds = 0
+                stop = 0
+                text = ''
+                results = []
+                coordRes = 80
+                pygame.draw.rect(screen, (255, 255, 255), (0, 0, 360, 160))
+
+            if e.key == pygame.K_RETURN:
+                run = False
+                startScript = 0
+                seconds = 0
+                stop = 0
+                text = 0
+
+    pygame.draw.rect(screen, (255, 255, 255), (0, 0, 360, 80))
+
+    if run == True:
+        seconds = time() - startScript
+
+    text = str(int(seconds//3600)) + ':' + str(int((seconds//60)%60)) + ':' + str(int(seconds%60)) + ':' + str(seconds*1000)[-3::]
+    screen.blit(font.render(text,True,color_fg),(100,50))
+
+    pygame.display.update()

@@ -1,0 +1,77 @@
+;;; -*- coding: utf-8 -*-
+
+;; ----- ido-last-directory-list -----
+(
+ ("/home/sabmodem/projects/repo/Projects/OrangeMan/" . "orange/")
+ ("/home/sabmodem/projects/repo/Projects/" . "OrangeMan/")
+ ("/home/sabmodem/projects/repo/" . "Projects/")
+ ("/home/sabmodem/projects/python/Timer/" . "Examples/")
+ ("/home/sabmodem/projects/C++/" . "Какие-то задачи/")
+ ("/home/sabmodem/projects/python/" . "Timer/")
+ ("/home/sabmodem/projects/" . "repo/")
+ ("/home/sabmodem/.emacs.d/" . "Settings/")
+ ("/home/sabmodem/" . ".emacs.d/")
+)
+
+;; ----- ido-work-directory-list -----
+(
+ "/home/sabmodem/"
+ "/home/sabmodem/Загрузки/"
+ "/home/sabmodem/.emacs.d/Settings/"
+ "/home/sabmodem/projects/repo/Projects/OrangeMan/"
+ "/home/sabmodem/projects/repo/Projects/OrangeMan/orange/"
+ "/home/sabmodem/projects/repo/Projects/"
+ "/home/sabmodem/projects/python/Timer/"
+ "/home/sabmodem/projects/python/tetris/"
+ "/home/sabmodem/projects/C++/Какие-то задачи/"
+)
+
+;; ----- ido-work-file-list -----
+(
+ ".xinitrc"
+ "sfesfsef.py"
+ "01.py"
+ "1.py"
+ "other.el"
+ "main.py"
+ "orange.py"
+ "0l.png"
+ "classO.py"
+ "bombs.py"
+)
+
+;; ----- ido-dir-file-cache -----
+(
+ ("/home/sabmodem/.emacs.d/" (24303 60317 67527 854000) "ido.last~" "backups/" "ido.last" "auto-save-list/" ".bash_profile" ".git/" "init.el" "#init.el#" "eshell/" "./" "Settings/" "../" "ac-comphist.dat" ".bashrc" "elpa/" "network-security.data" "snippets/")
+
+ ("/home/sabmodem/" (24304 42600 210924 629000) ".local/" ".xsession-errors" "Баскетбол.odt" "dwm-6.2/" "1.py" "test.mp3" "#.xinitrc#" ".viminfo" ".emacs.d/" "my.txt" ".python_history" "Novy_textovy_dokument" ".xinit" ".config/" ".cache/" "восстановленное/" ".vim/" "Батины конспекты/" ".nv/" ".bash_history" ".bash_profile" "sabmodem@ArchLaptop" "text.txt" "test" ".bash_logout" ".gnupg/" ".gitconfig" "Untitled 1.odt" ".ICEauthority" ".mozilla/" "Прыгучесть.odt" "Desktop/" "Новая папка/" "./" "dwm/" "../" ".vimrc" "builds/" "a.txt" "ОФП.odt" ".pki/" ".ssh/" "Pictures/" "projects/" "mnt/" ".kde4/" ".xinitrc" "Загрузки/" "Downloads/" "testfile" ".bashrc" "Untitled 3.odt" "Novy_textovy_dokument.cpp" "злоебучая учеба/" "Виды бросков.odt" ".Xauthority")
+
+ ("/home/sabmodem/Загрузки/" (24279 50149 887343 898000) "numbers.py" "masterstvo-obshcheniya-legal.pdf" "perevorot_storki.txt" "my.txt" "01 Комментариии к материалам от Евгения Яковлева.docx" "get-pip.py" "probe.py" "Лекции Экономика предприятиятема 8.docx" "tor-browser-linux64-9.0.9_en-US.tar.xz" "z4.py" "tor-browser_en-US/" "__pycache__/" "termux-0-52.apk" "01.py" "Новая папка/" "./" "string.cs" "gametimer.py" "termux-0-22.apk" "../" "zadanie.cs" "Без имени 2.odt" "module.py" "TOPIC для ПИ-11а, ПИ-11б.docx")
+
+ ("/home/sabmodem/projects/repo/Projects/OrangeMan/orange/" (24262 53544 189746 521000) "0l.png" "1l.png" "0r.png" "bg1200.jpg" "1.jpg" "4l.png" "2.jpg" "./" "3.jpg" "../" "2l.png" "3l.png" "4r.png" "2r.png" "3r.png" "1r.png")
+
+ ("/home/sabmodem/projects/repo/Projects/OrangeMan/" (24258 62610 611492 665000) "orange.py" "bombs/" "Examples/" "./" "../" "main.py" "orange/" "README.md")
+
+ ("/home/sabmodem/projects/repo/Projects/" (24258 61759 131520 838000) "ascii art/" "Градиент/" ".git/" "Timer/" "turtle/" "./" "graphics/" "../" "tetris/" "OrangeMan/")
+
+ ("/home/sabmodem/projects/python/tetris/" (24257 18273 422063 968000) "Examples/" "gametetris.py" "__pycache__/" "./" "../" "tetris.py" "init.py")
+
+ ("/home/sabmodem/projects/python/Timer/" (24257 21037 705305 597000) "Examples/" "gameTimer.py" "__pycache__/" "./" "#timer.py#" "../" "main.py" "timer.py")
+
+ ("/home/sabmodem/projects/repo/" (24228 51454 539365 640000) "Projects/" "./" "../" "Cpp-Tasks/")
+
+ ("/home/sabmodem/.emacs.d/Settings/" (24257 8657 272383 805000) "plugins.el" "other.el" "./" "../" "other.el~" "init-key-bindings.el")
+
+ ("/home/sabmodem/projects/python/Timer/Examples/" (24245 54605 391316 119000) "Screenshot_20200428_181921.png" "./" "../")
+
+ ("/home/sabmodem/projects/C++/Какие-то задачи/" (24222 46547 57062 789000) "5" "inpt.txt" "2" "3" "5.cpp" "3.cpp" "task1.txt" "./" "done.txt" "1.cpp" "../" "#2.cpp#" "1" "output.txt" "2.cpp" "file.dat")
+
+ ("/home/sabmodem/projects/C++/" (24232 25819 923323 676000) "Какие-то задачи/" "структуры данных/" "./" "../" "сортировка односвзяного списка (1-я копия)/")
+
+ ("/home/sabmodem/projects/python/" (24250 16245 823144 680000) "поиск по вк/" "ascii art/" "Градиент/" "2/" "3/" "лаб1/" "Timer/" "turtle/" "./" "../" "tetris/" "лабы паши/")
+
+ ("/home/sabmodem/projects/" (24233 49786 636255 805000) "python/" "repo/" "C++/" "./" "../" "сайты/" "acmp/" "nasm/")
+)
+
+;; ----- ido-unc-hosts-cache -----
+t
