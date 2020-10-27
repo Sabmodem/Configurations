@@ -1,3 +1,5 @@
+(setq js-indent-level 2)
+
 
 (defun my-c++-mode-hook ()
   (define-key c++-mode-map [(f10)] 'compile)
@@ -104,7 +106,6 @@ Version 2018-10-05"
 (setq gc-cons-threshold (* 10 gc-cons-threshold)) ; 10 * 400 KB (default)
 
 ;; Интерфейс
-
 (menu-bar-mode -1)                   ;; Делаем емакс аскетичным
 (tool-bar-mode -1)
 (setq column-number-mode t)          ;; Показывать номер текущей колонки
@@ -114,10 +115,10 @@ Version 2018-10-05"
 (setq echo-keystrokes 0.001)         ;; Мгновенное отображение набранных сочетаний клавиш
 (setq use-dialog-boxes nil)          ;; Не использовать диалоговые окна
 (setq cursor-in-non-selected-windows nil) ;; Не показывать курсоры в неактивных окнах
-(setq default-tab-width 4)           ;; размер табуляции
+(setq default-tab-width 2)           ;; размер табуляции
 (setq c-basic-offset 4)              ;; табуляция для режимов, основанных на c-mode
-(setq tab-width 4)
-(setq cperl-indent-level 4)
+(setq tab-width 2)
+(setq cperl-indent-level 2)
 (setq sgml-basic-offset 4)           ;; для HTML и XML
 (setq-default indent-tabs-mode nil)  ;; отступ только пробелами
 (setq initial-scratch-message nil)   ;; Scratch buffer settings. Очищаем его.

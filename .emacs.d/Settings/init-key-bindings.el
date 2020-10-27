@@ -51,8 +51,8 @@
 (defun my-insert-tab-char ()
   "Вставляет 4 пробела(Вместо символа '\t')"
   (interactive)
-  (insert "    "))
-(global-set-key (kbd "TAB") 'my-insert-tab-char)
+  (insert "  "))
+(global-set-key (kbd "M-TAB") 'my-insert-tab-char)
 
 (defun eval-python-buffer ()
   "Execute current buffer as Python code."

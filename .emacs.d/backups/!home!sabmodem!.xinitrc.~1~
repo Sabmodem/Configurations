@@ -1,2 +1,0 @@
-exec startplasma-x11
-setxkbmap -layout 'us,ru' -option 'grp:alt_shift_toggle, grp_led:caps'
