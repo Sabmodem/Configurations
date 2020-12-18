@@ -1,6 +1,5 @@
 (add-to-list 'load-path "~/.emacs.d/settings/")
-;;(require 'plugins)
+
 (require 'other)
 (require 'plugins)
-(require 'init-key-bindings)
-;;(require 'plugins)
+(require 'keymap)

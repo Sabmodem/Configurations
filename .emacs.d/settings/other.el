@@ -1,15 +1,8 @@
-(add-hook 'c++-mode-hook
-          (lambda ()
-            (unless (file-exists-p "Makefile")
-              (set (make-local-variable 'compile-command)
-                   (let ((file (file-name-nondirectory buffer-file-name)))
-                     (concat "g++ -g -O2 -Wall -o "
-                             (file-name-sans-extension file)
-                             " " file)))
-              (define-key c++-mode-map [(f10)] 'compile)
-              (define-key c++-mode-map [(f4)] 'gdb))))
+(defun my-insert-tab-char ()
+  "Вставляет 4 пробела(Вместо символа '\t')"
+  (interactive)
+  (insert "  "))
 
-;; Comment function
 (defun comment-or-uncomment-this (&optional lines)
   (interactive "P")
   (if mark-active
@@ -20,11 +13,16 @@
      (line-beginning-position)
      (line-end-position lines))))
 
-(global-set-key (kbd "C-x /")
-		'comment-or-uncomment-this)
-
-(with-eval-after-load "python"
-  (define-key python-mode-map (kbd "DEL") nil))
+(add-hook 'c++-mode-hook
+          (lambda ()
+            (unless (file-exists-p "Makefile")
+              (set (make-local-variable 'compile-command)
+                   (let ((file (file-name-nondirectory buffer-file-name)))
+                     (concat "g++ -g -O2 -Wall -o "
+                             (file-name-sans-extension file)
+                             " " file)))
+              (define-key c++-mode-map [(f10)] 'compile)
+              (define-key c++-mode-map [(f4)] 'gdb))))
 
 (defun xah-show-kill-ring ()
   "Insert all `kill-ring' content in a new buffer named *copy history*.
@@ -101,9 +99,7 @@ Version 2018-10-05"
 (setq tab-width 2)
 (setq cperl-indent-level 2)
 (setq sgml-basic-offset 2)           ;; для HTML и XML
-(setq web-mode-markup-indent-offset 2);; web-mode
-(setq web-mode-css-indent-offset 2)
-(setq web-mode-code-indent-offset 2)
+(setq js-indent-level 2)            ;; отступ для js2
 (setq-default indent-tabs-mode nil)  ;; отступ только пробелами
 (setq initial-scratch-message nil)   ;; Scratch buffer settings. Очищаем его.
 (setq case-fold-search t)            ;; Поиск без учёта регистра
@@ -131,12 +127,12 @@ Version 2018-10-05"
 (setq scroll-preserve-screen-position 't)
 (setq scroll-margin 10)
 
-(setq my-author-name (getenv "USER"))
-(setq user-full-name (getenv "USER"))
+;; (setq my-author-name (getenv "USER"))
+;; (setq user-full-name (getenv "USER"))
 (setq require-final-newline t)       ;; always end a file with a newline
 
-(set-cursor-color "red")             ;; Красный не мигающий (!) курсор
-(blink-cursor-mode nil)
+;; (set-cursor-color "red")             ;; Красный не мигающий (!) курсор
+;; (blink-cursor-mode nil)
 ;; Однако в режиме терминала это не работает, поэтому..
 ;;(send-string-to-terminal "\033]12;red\007") АХТУНГ!!! ПОРТИТ ВСЕ УСТАНОВЛЕННЫЕ ПЛАГИНЫ
 ;; мышка...
@@ -175,13 +171,30 @@ Version 2018-10-05"
   (interactive "*")
   (delete-trailing-whitespace))
 
+;; cleaning unuxpected buffers
+(defun clean-unuxpected-buffers ()
+  (if (get-buffer "*pu-dummy-direx*") (kill-buffer "*pu-dummy-direx*"))
+  (if (get-buffer "*pu-dummy-buffers*") (kill-buffer "*pu-dummy-buffers*"))
+  (if (get-buffer "*pu-dummy-ilist*") (kill-buffer "*pu-dummy-ilist*"))
+  (if (get-buffer "*pu-dummy-edit*") (kill-buffer "*pu-dummy-edit*")))
+
 ;;function for loading purpose
 (defun load-purpose-ide ()
   (interactive)
   (purpose-load-window-layout-file "~/.emacs.d/layouts/full-ide.window-layout")
-  (direx:jump-to-directory)
   (imenu-list-minor-mode)
-  (list-buffers))
+  (direx:jump-to-directory)
+  (list-buffers)
+  (clean-unuxpected-buffers)
+  (list-buffers)
+  (add-hook 'buffer-list-update-hook
+            '(lambda () (message default-directory)))
+  (purpose-switch-buffer "*Buffer List*")
+  (purpose-toggle-window-buffer-dedicated)
+  ;; (other-window 4)
+  )
 
+;; (add-hook 'find-file-hook
+;;           '(lambda () (if (get-buffer "*Buffer List*") (list-buffers))))
 
 (provide 'other)
