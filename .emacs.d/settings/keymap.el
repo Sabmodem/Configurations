@@ -1,3 +1,8 @@
+;; (defun before-find-file-function ()
+;;   (interactive)
+;;   (if (get-buffer (file-name-nondirectory (directory-file-name (file-name-directory default-directory)))) (kill-buffer (file-name-nondirectory (directory-file-name (file-name-directory default-directory)))))
+;;   (ido-find-file))
+
 (defvar init-keymap
   (let ((map (make-sparse-keymap)))
     (define-key map (kbd "C-v") 'yank)
@@ -17,6 +22,8 @@
     (define-key map (kbd "C-z") 'undo)
     (define-key map (kbd "M-TAB") 'my-insert-tab-char)
     (define-key map (kbd "C-x /") 'comment-or-uncomment-this)
+    (define-key map (kbd "C-p C-f") 'projectile-find-file)
+    ;; (define-key map (kbd "C-x C-f") 'before-find-file-function)
     map))
 
 (define-minor-mode init-settings

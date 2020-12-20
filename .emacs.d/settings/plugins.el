@@ -25,6 +25,35 @@
 (add-to-list 'custom-theme-load-path
              (file-name-as-directory "~/.emacs.d/.cask/27.1/elpa/alect-themes-20200801.2041"))
 
+;; ;; make the fringe stand out from the background
+;; (setq solarized-distinct-fringe-background t)
+
+;; ;; Don't change the font for some headings and titles
+;; (setq solarized-use-variable-pitch nil)
+
+;; ;; make the modeline high contrast
+;; (setq solarized-high-contrast-mode-line t)
+
+;; ;; Use less bolding
+;; (setq solarized-use-less-bold t)
+
+;; ;; Use more italics
+;; (setq solarized-use-more-italic t)
+
+;; ;; Use less colors for indicators such as git:gutter, flycheck and similar
+;; (setq solarized-emphasize-indicators nil)
+
+;; ;; Don't change size of org-mode headlines (but keep other size-changes)
+;; (setq solarized-scale-org-headlines nil)
+
+;; ;; Avoid all font-size changes
+;; (setq solarized-height-minus-1 1.0)
+;; (setq solarized-height-plus-1 1.0)
+;; (setq solarized-height-plus-2 1.0)
+;; (setq solarized-height-plus-3 1.0)
+;; (setq solarized-height-plus-4 1.0)
+
+
 ;; (load-theme 'solarized-dark t t)
 ;; (enable-theme 'solarized-dark)
 (load-theme 'solarized-gruvbox-dark t t)
@@ -130,6 +159,18 @@
 ;;direx
 (require 'direx)
 
+;; ;; treemacs
+;; (require 'treemacs)
+
+;; dirtree
+;;(require 'dirtree)
+
+;; neotree
+(require 'neotree)
+(setq neo-smart-open t)
+(require 'all-the-icons)
+(setq neo-theme (if (display-graphic-p) 'icons 'arrow))
+
 ;; flycheck
 (require 'flycheck)
 (global-flycheck-mode)
@@ -145,6 +186,7 @@
 (progn
   (add-to-list 'purpose-user-mode-purposes '(fundamental-mode . misc))
   (add-to-list 'purpose-user-mode-purposes '(direx:direx-mode . direx))
+  (add-to-list 'purpose-user-mode-purposes '(neotree-mode . direx))
   (add-to-list 'purpose-user-mode-purposes '(ibuffer-mode . buffers))
   (add-to-list 'purpose-user-mode-purposes '(Buffer-menu-mode . buffers))
   (add-to-list 'purpose-user-mode-purposes '(imenu-list-major-mode . ilist))
@@ -186,8 +228,6 @@
 ;;projectile
 (require 'projectile)
 (projectile-mode +1)
-(define-key projectile-mode-map (kbd "s-p") 'projectile-command-map)
-(define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
 
 ;; go-mode
 (require 'go-mode)

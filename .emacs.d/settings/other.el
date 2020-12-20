@@ -1,3 +1,5 @@
+;; (setq ide-layout-is-loaded nil)
+
 (defun my-insert-tab-char ()
   "Вставляет 4 пробела(Вместо символа '\t')"
   (interactive)
@@ -54,7 +56,7 @@ Version 2018-10-05"
                                (delete-trailing-whitespace)))
 
 ;; Создание резервных копий редактируемых файлов (Backup)
-;; (info "(emacs)Auto Save")
+(setq backup-by-copying t)
 (setq auto-save-interval 512)            ;; Количество нажатий до автосохранения
 (setq auto-save-timeout 20)              ;; Автосохранение в перерыве между нажатиями (в секундах)
 (setq backup-directory-alist             ;; Все временные копии в один каталог.
@@ -64,6 +66,16 @@ Version 2018-10-05"
 (setq delete-old-versions t)             ;; Удалять старые версии без подтверждения
 (setq kept-new-versions 6)               ;; нумерованный бэкап - 2 первых и 2 последних
 (setq kept-old-versions 2)
+
+(defun my-backup-file-name (fpath)
+  (let (backup-root bpath)
+    (setq backup-root "~/.emacs.d/backups")
+    (setq bpath (concat backup-root fpath "~"))
+    (make-directory (file-name-directory bpath) bpath)
+    bpath
+    )
+  )
+(setq make-backup-file-name-function 'my-backup-file-name)
 
 ;; Оптимизация работы редактора
 ;; limit on number of Lisp variable bindings & unwind-protects
@@ -127,22 +139,11 @@ Version 2018-10-05"
 (setq scroll-preserve-screen-position 't)
 (setq scroll-margin 10)
 
-;; (setq my-author-name (getenv "USER"))
-;; (setq user-full-name (getenv "USER"))
 (setq require-final-newline t)       ;; always end a file with a newline
 
-;; (set-cursor-color "red")             ;; Красный не мигающий (!) курсор
-;; (blink-cursor-mode nil)
-;; Однако в режиме терминала это не работает, поэтому..
-;;(send-string-to-terminal "\033]12;red\007") АХТУНГ!!! ПОРТИТ ВСЕ УСТАНОВЛЕННЫЕ ПЛАГИНЫ
 ;; мышка...
 (global-set-key [vertical-scroll-bar down-mouse-1] 'scroll-bar-drag) ;; Scroll Bar gets dragged by mouse butn 1
 (setq mouse-yank-at-point 't)        ;; Paste at point NOT at cursor
-
-;; ;; Хочу чтобы inferior shell открывался в том же окне
-;; (add-to-list 'display-buffer-alist
-;;              `(,(rx bos "*shell*")
-;;                display-buffer-same-window))
 
 
 (defadvice yank (after indent-region activate)
@@ -183,18 +184,56 @@ Version 2018-10-05"
   (interactive)
   (purpose-load-window-layout-file "~/.emacs.d/layouts/full-ide.window-layout")
   (imenu-list-minor-mode)
-  (direx:jump-to-directory)
+  (neotree-find)
   (list-buffers)
   (clean-unuxpected-buffers)
   (list-buffers)
-  (add-hook 'buffer-list-update-hook
-            '(lambda () (message default-directory)))
   (purpose-switch-buffer "*Buffer List*")
   (purpose-toggle-window-buffer-dedicated)
-  ;; (other-window 4)
-  )
+  (setq ide-layout-is-loaded t))
 
-;; (add-hook 'find-file-hook
-;;           '(lambda () (if (get-buffer "*Buffer List*") (list-buffers))))
+(defun neotree-get-buffer-create (&optional dir)
+  "Return the neotree buffer -- creating it if needed.
+The root directory may be set/reset using the optional
+argument of DIR; else if buffer exists already use it
+as-is; else use `neo-path--get-working-dir'."
+  (let ((valid-start-node-p nil)
+        (buffer (neo-global--get-buffer t)))
+    (neo-global--with-buffer
+      (setf valid-start-node-p (neo-buffer--valid-start-node-p))
+      (when (or dir (not valid-start-node-p))
+        (let ((path (or dir (neo-path--get-working-dir)))
+              start-path)
+          (unless (and (file-exists-p path)
+                       (file-directory-p path))
+            (throw 'error "The path is not a valid directory."))
+          (setq start-path (expand-file-name (substitute-in-file-name path)))
+          (setq neo-buffer--start-node start-path)
+          (cd start-path)
+          (neo-buffer--save-cursor-pos path nil)
+          (let ((start-node neo-buffer--start-node))
+            (unless start-node
+              (setq start-node default-directory))
+            (neo-buffer--with-editing-buffer
+             ;; starting refresh
+             (erase-buffer)
+             (neo-buffer--node-list-clear)
+             (neo-buffer--insert-banner)
+             (setq neo-buffer--start-line neo-header-height)
+             (neo-buffer--insert-tree start-node 1)
+             (goto-char (point-min)))))))
+    buffer))
+
+
+;; Prototype of function that must checks status of the buffer list and neotree and starts them. Trouble with check status of the neotree
+;; (defun update-neotree-and-buffer-list ()
+;;   (if (get-buffer "*Buffer List*") (buffer-menu))
+;;   (if (neotree-get-buffer-create) (neotree)))
+  ;; (if ide-layout-is-loaded (progn (neotree-find))))
+
+
+;; (add-hook 'find-file-hook 'update-neotree-and-buffer-list)
+;; (add-hook 'kill-buffer-hook 'update-neotree-and-buffer-list)
+;; (add-hook 'kill-emacs-hook (lambda () (remove-hook 'kill-buffer-hook 'update-neotree-and-buffer-list)))
 
 (provide 'other)

@@ -25,3 +25,5 @@
 (depends-on "heroku-theme")
 (depends-on "alect-themes")
 (depends-on "go-mode")
+(depends-on "neotree")
+(depends-on "all-the-icons")
