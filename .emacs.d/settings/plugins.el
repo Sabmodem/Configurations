@@ -1,5 +1,5 @@
 ;;load the cask package directories
-(let ((base "~/.emacs.d/.cask/27.1/elpa"))
+(let ((base (concat "~/.emacs.d/.cask/" emacs-version "/elpa")))
   (add-to-list 'load-path base)
   (dolist (f (directory-files base))
     (let ((name (concat base "/" f)))
@@ -9,21 +9,21 @@
         (add-to-list 'load-path name)))))
 
 (add-to-list 'custom-theme-load-path
-             (file-name-as-directory "~/.emacs.d/.cask/27.1/elpa/color-theme-modern-20200729.921"))
+             (file-name-as-directory (concat "~/.emacs.d/.cask/" emacs-version "/elpa/color-theme-modern-20200729.921")))
 (add-to-list 'custom-theme-load-path
-             (file-name-as-directory "~/.emacs.d/.cask/27.1/elpa/nord-theme-20200620.1122"))
+             (file-name-as-directory (concat "~/.emacs.d/.cask/" emacs-version "/elpa/nord-theme-20200620.1122")))
 (add-to-list 'custom-theme-load-path
-             (file-name-as-directory "~/.emacs.d/.cask/27.1/elpa/dracula-theme-20201120.758"))
+             (file-name-as-directory (concat "~/.emacs.d/.cask/" emacs-version "/elpa/dracula-theme-20201120.758")))
 (add-to-list 'custom-theme-load-path
-             (file-name-as-directory "~/.emacs.d/.cask/27.1/elpa/soothe-theme-20141027.1441"))
+             (file-name-as-directory (concat "~/.emacs.d/.cask/" emacs-version "/elpa/soothe-theme-20141027.1441")))
 (add-to-list 'custom-theme-load-path
              (file-name-as-directory "~/.emacs.d/.cask/27.1/elpa/nova-theme-20200826.1803"))
 (add-to-list 'custom-theme-load-path
-             (file-name-as-directory "~/.emacs.d/.cask/27.1/elpa/solarized-theme-20201207.1431"))
+             (file-name-as-directory (concat "~/.emacs.d/.cask/" emacs-version "/elpa/solarized-theme-20201207.1431")))
 (add-to-list 'custom-theme-load-path
-             (file-name-as-directory "~/.emacs.d/.cask/27.1/elpa/heroku-theme-20150523.219"))
+             (file-name-as-directory (concat "~/.emacs.d/.cask/" emacs-version "/elpa/heroku-theme-20150523.219")))
 (add-to-list 'custom-theme-load-path
-             (file-name-as-directory "~/.emacs.d/.cask/27.1/elpa/alect-themes-20200801.2041"))
+             (file-name-as-directory (concat "~/.emacs.d/.cask/" emacs-version "/elpa/alect-themes-20200801.2041")))
 
 ;; ;; make the fringe stand out from the background
 ;; (setq solarized-distinct-fringe-background t)
@@ -70,7 +70,7 @@
 ;; (enable-theme 'heroku)
 
 (require 'yasnippet)
-(setq yas-snippet-dirs '("~/.emacs.d/.cask/27.1/elpa/yasnippet-snippets-20201214.1054/snippets"))
+(setq yas-snippet-dirs (list (concat "~/.emacs.d/snippets")))
 (yas-global-mode 1)
 
 ;;linum
@@ -133,7 +133,7 @@
 (require 'auto-complete)
 (require 'auto-complete-config)
 (ac-config-default)
-(add-to-list 'ac-dictionary-directories "~/.emacs.d/.cask/27.1/elpa/auto-complete-20201213.1255/dict")
+(add-to-list 'ac-dictionary-directories (concat "~/.emacs.d/.cask/" emacs-version "/elpa/auto-complete-20201213.1255/dict"))
 (setq ac-auto-start        t)
 (setq ac-auto-show-menu    t)
 (global-auto-complete-mode t)
@@ -156,20 +156,12 @@
 (add-hook 'js2-mode-hook 'ac-js2-mode)
 (add-hook 'js2-mode-hook 'ac-js2-setup-auto-complete-mode)
 
-;;direx
-(require 'direx)
-
-;; ;; treemacs
-;; (require 'treemacs)
-
-;; dirtree
-;;(require 'dirtree)
-
 ;; neotree
 (require 'neotree)
 (setq neo-smart-open t)
 (require 'all-the-icons)
 (setq neo-theme (if (display-graphic-p) 'icons 'arrow))
+(setq projectile-switch-project-action 'neotree-projectile-action)
 
 ;; flycheck
 (require 'flycheck)

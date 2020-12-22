@@ -1,4 +1,4 @@
-;; (setq ide-layout-is-loaded nil)
+(setq ide-layout-is-loaded nil)
 
 (defun my-insert-tab-char ()
   "Вставляет 4 пробела(Вместо символа '\t')"
@@ -182,14 +182,14 @@ Version 2018-10-05"
 ;;function for loading purpose
 (defun load-purpose-ide ()
   (interactive)
-  (purpose-load-window-layout-file "~/.emacs.d/layouts/full-ide.window-layout")
-  (imenu-list-minor-mode)
-  (neotree-find)
-  (list-buffers)
-  (clean-unuxpected-buffers)
-  (list-buffers)
-  (purpose-switch-buffer "*Buffer List*")
-  (purpose-toggle-window-buffer-dedicated)
+  ;; (purpose-load-window-layout-file "~/.emacs.d/layouts/full-ide.window-layout")
+  ;; (imenu-list-minor-mode)
+  (if (not ide-layout-is-loaded) (lambda() (message "adwwadawdw")))
+  ;; (list-buffers)
+  ;; (clean-unuxpected-buffers)
+  ;; (list-buffers)
+  ;; (purpose-switch-buffer "*Buffer List*")
+  ;; (purpose-toggle-window-buffer-dedicated)
   (setq ide-layout-is-loaded t))
 
 (defun neotree-get-buffer-create (&optional dir)
@@ -226,14 +226,46 @@ as-is; else use `neo-path--get-working-dir'."
 
 
 ;; Prototype of function that must checks status of the buffer list and neotree and starts them. Trouble with check status of the neotree
-;; (defun update-neotree-and-buffer-list ()
-;;   (if (get-buffer "*Buffer List*") (buffer-menu))
+(defun update-neotree-and-buffer-list ()
+  (if (get-buffer "*Buffer List*") (buffer-menu))
 ;;   (if (neotree-get-buffer-create) (neotree)))
-  ;; (if ide-layout-is-loaded (progn (neotree-find))))
+  (if ide-layout-is-loaded (progn (neotree-find))))
 
 
 ;; (add-hook 'find-file-hook 'update-neotree-and-buffer-list)
 ;; (add-hook 'kill-buffer-hook 'update-neotree-and-buffer-list)
-;; (add-hook 'kill-emacs-hook (lambda () (remove-hook 'kill-buffer-hook 'update-neotree-and-buffer-list)))
+;; (add-hook 'window-setup-hook (lambda () (message default-directory)))
+;; (add-to-list 'window-buffer-change-functions (lambda (window) (let buf (buffer-name (window-buffer (frame-selected-window window))) (when (string-match "*" )) message )))
+
+;; (when (string-match "[ \t]*$" test-str)
+;;   (message (concat "[" (replace-match "" nil nil test-str) "]")))
+
+;; (add-hook 'window-setup-hook 'update-neotree-and-buffer-list)
+;; (add-hook 'window-setup-hook 'update-neotree-and-buffer-list)
+
+
+;; Function in the package are broken. This is fixing the problem
+(defun ac-js2-setup-auto-complete-mode ()
+  "Setup ac-js2 to be used with auto-complete-mode."
+  (add-to-list 'ac-sources 'ac-source-js2)
+  (auto-complete-mode)
+  (eval '(ac-define-source "js2"
+           '((candidates . ac-js2-ac-candidates)
+             (document . ac-js2-ac-document)
+             (prefix .  ac-js2-ac-prefix)
+             (requires . -1)))))
+
+(defun neotree-project-dir ()
+  "Open NeoTree using the git root."
+  (interactive)
+  (let ((project-dir (projectile-project-root))
+        (file-name (buffer-file-name)))
+    (neotree-find)
+    (if project-dir
+        (if (neo-global--window-exists-p)
+            (progn
+              (neotree-dir project-dir)
+              (neotree-find file-name)))
+      (message "-1"))))
 
 (provide 'other)
