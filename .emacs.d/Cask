@@ -27,3 +27,5 @@
 (depends-on "go-mode")
 (depends-on "neotree")
 (depends-on "all-the-icons")
+(depends-on "hydra")
+(depends-on "popwin")

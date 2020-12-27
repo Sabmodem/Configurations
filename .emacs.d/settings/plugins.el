@@ -1,4 +1,3 @@
-;;load the cask package directories
 (let ((base (concat "~/.emacs.d/.cask/" emacs-version "/elpa")))
   (add-to-list 'load-path base)
   (dolist (f (directory-files base))
@@ -17,7 +16,7 @@
 (add-to-list 'custom-theme-load-path
              (file-name-as-directory (concat "~/.emacs.d/.cask/" emacs-version "/elpa/soothe-theme-20141027.1441")))
 (add-to-list 'custom-theme-load-path
-             (file-name-as-directory "~/.emacs.d/.cask/27.1/elpa/nova-theme-20200826.1803"))
+             (file-name-as-directory (concat "~/.emacs.d/.cask/" emacs-version "/elpa/nova-theme-20200826.1803")))
 (add-to-list 'custom-theme-load-path
              (file-name-as-directory (concat "~/.emacs.d/.cask/" emacs-version "/elpa/solarized-theme-20201207.1431")))
 (add-to-list 'custom-theme-load-path
@@ -68,6 +67,8 @@
 ;; (enable-theme 'nova)
 ;; (load-theme 'heroku t t)
 ;; (enable-theme 'heroku)
+;; (load-theme 'dracula t t)
+;; (enable-theme 'dracula)
 
 (require 'yasnippet)
 (setq yas-snippet-dirs (list (concat "~/.emacs.d/snippets")))
@@ -162,6 +163,7 @@
 (require 'all-the-icons)
 (setq neo-theme (if (display-graphic-p) 'icons 'arrow))
 (setq projectile-switch-project-action 'neotree-projectile-action)
+(neotree-click-changes-root-toggle)
 
 ;; flycheck
 (require 'flycheck)
@@ -192,7 +194,9 @@
   (add-to-list 'purpose-user-mode-purposes '(term-mode . misc))
   (add-to-list 'purpose-user-mode-purposes '(completion-list-mode . misc))
 
+  (add-to-list 'purpose-user-name-purposes '("special-buffer" . direx))
   (add-to-list 'purpose-user-name-purposes '("*Buffer List*" . buffers))
+  (add-to-list 'purpose-user-name-purposes '("*Ibuffer*" . buffers))
   (add-to-list 'purpose-user-name-purposes '("*Ilist*" . ilist))
 
   (purpose-compile-user-configuration)
@@ -206,7 +210,7 @@
   (lambda () (interactive) (purpose-switch-buffer (get-only-one-buffer-with-purpose 'direx))))
 
 (define-key purpose-mode-map (kbd "C-c C-l")
-  (lambda () (interactive) (purpose-switch-buffer "*Buffer List*")))
+  (lambda () (interactive) (purpose-switch-buffer "*Ibuffer*")))
 
 (define-key purpose-mode-map (kbd "C-c C-c")
   (lambda () (interactive) (purpose-switch-buffer-with-some-purpose 'edit)))
@@ -225,5 +229,17 @@
 (require 'go-mode)
 (autoload 'go-mode "go-mode" nil t)
 (add-to-list 'auto-mode-alist '("\\.go\\'" . go-mode))
+
+(require 'popwin)
+(popwin-mode 1)
+
+;; (push '(ibuffer-mode :width 30 :position left :stick t) popwin:special-display-config)
+;; (push '(neotree-mode :width 20 :position left :stick t) popwin:special-display-config)
+
+
+;; (defun ibuffer-smart-show ()
+;;   (interactive)
+;;   (ibuffer)
+;;   (popwin:display-buffer (get-buffer "*Ibuffer*")))
 
 (provide 'plugins)

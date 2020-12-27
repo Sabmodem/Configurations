@@ -6,9 +6,9 @@
 (defvar init-keymap
   (let ((map (make-sparse-keymap)))
     (define-key map (kbd "C-v") 'yank)
-    (define-key map (kbd "C-f") 'isearch-forward)
+    ;; (define-key map (kbd "C-f") 'isearch-forward)
     (define-key map (kbd "C-s") 'save-buffer)
-    (define-key map (kbd "M-a") 'execute-extended-command)
+    (define-key map (kbd "M-a") 'isearch-forward)
     (define-key map (kbd "M-i") 'previous-line)
     (define-key map (kbd "M-I") 'backward-paragraph)
     (define-key map (kbd "M-j") 'left-char)
@@ -22,14 +22,17 @@
     (define-key map (kbd "C-z") 'undo)
     (define-key map (kbd "M-TAB") 'my-insert-tab-char)
     (define-key map (kbd "C-x /") 'comment-or-uncomment-this)
+    (define-key map (kbd "C-x \\") 'indent-region)
     (define-key map (kbd "C-p C-f") 'projectile-find-file)
-    ;; (define-key map (kbd "C-x C-f") 'before-find-file-function)
+    (define-key map (kbd "C-x C-b") 'ibuffer)
+    (define-key map (kbd "C-l C-i") 'load-purpose-ide)
+    (define-key map (kbd "C-n C-p") 'neotree-project-dir)
     map))
 
 (define-minor-mode init-settings
-  "Doc description, yada yada yada."
+  "In this minor mode are kept my keymap and other settings, that must be not deleted by plugins"
   nil
-  ""
+  " IST"
   init-keymap
   :global 1
   )
