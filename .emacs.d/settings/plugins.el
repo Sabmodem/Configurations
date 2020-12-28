@@ -1,5 +1,5 @@
+;; set load-path
 (let ((base (concat "~/.emacs.d/.cask/" emacs-version "/elpa")))
-  (add-to-list 'load-path base)
   (dolist (f (directory-files base))
     (let ((name (concat base "/" f)))
       (when (and (file-directory-p name)
@@ -7,22 +7,15 @@
                  (not (equal f ".")))
         (add-to-list 'load-path name)))))
 
-(add-to-list 'custom-theme-load-path
-             (file-name-as-directory (concat "~/.emacs.d/.cask/" emacs-version "/elpa/color-theme-modern-20200729.921")))
-(add-to-list 'custom-theme-load-path
-             (file-name-as-directory (concat "~/.emacs.d/.cask/" emacs-version "/elpa/nord-theme-20200620.1122")))
-(add-to-list 'custom-theme-load-path
-             (file-name-as-directory (concat "~/.emacs.d/.cask/" emacs-version "/elpa/dracula-theme-20201120.758")))
-(add-to-list 'custom-theme-load-path
-             (file-name-as-directory (concat "~/.emacs.d/.cask/" emacs-version "/elpa/soothe-theme-20141027.1441")))
-(add-to-list 'custom-theme-load-path
-             (file-name-as-directory (concat "~/.emacs.d/.cask/" emacs-version "/elpa/nova-theme-20200826.1803")))
-(add-to-list 'custom-theme-load-path
-             (file-name-as-directory (concat "~/.emacs.d/.cask/" emacs-version "/elpa/solarized-theme-20201207.1431")))
-(add-to-list 'custom-theme-load-path
-             (file-name-as-directory (concat "~/.emacs.d/.cask/" emacs-version "/elpa/heroku-theme-20150523.219")))
-(add-to-list 'custom-theme-load-path
-             (file-name-as-directory (concat "~/.emacs.d/.cask/" emacs-version "/elpa/alect-themes-20200801.2041")))
+;; set custom-theme-load-path
+(let ((base "~/.emacs.d/themes"))
+  (dolist (f (directory-files base))
+    (let ((name (concat base "/" f)))
+      (when (and (file-directory-p name)
+                 (not (equal f ".."))
+                 (not (equal f ".")))
+        (add-to-list 'custom-theme-load-path name)))))
+
 
 ;; ;; make the fringe stand out from the background
 ;; (setq solarized-distinct-fringe-background t)
