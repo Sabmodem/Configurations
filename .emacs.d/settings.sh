@@ -1,6 +1,6 @@
 if [ -e $HOME/.emacs.d/snippets ]
 then
-   rm $HOME/.emacs.d/snippets
+    rm $HOME/.emacs.d/snippets
 fi
 if [ -e $HOME/.emacs.d/themes ]
 then
@@ -8,15 +8,34 @@ then
 fi
 
 mkdir $HOME/.emacs.d/themes
-cd $HOME/.emacs.d/.cask/
-ln -s $(find -name snippets) $HOME/.emacs.d/snippets
+cd $HOME/.emacs.d
+ln -s $(find -name snippets)
 
-for theme_dir in $(find -name "*theme*" -type d)
+cd $HOME/.emacs.d/themes
+for theme_dir in $(find .. -name "*theme*" -type d)
 do
-    ln -s $(echo $theme_dir) $(echo $theme_dir | grep -o '[A-Za-z -]*')
+    ln -s $theme_dir $HOME/.emacs.d/themes/
 done
 
-for theme_dir in $(find -name "*theme*" -type d)
-do
-    mv $(echo $theme_dir) $HOME/.emacs.d/themes/
-done
+rm $HOME/.emacs.d/themes/themes
+
+cd $HOME/.emacs.d
+if [ -e ./HTML5-YASnippet-bundle ]
+then
+    rm -r -f ./HTML5-YASnippet-bundle
+fi
+
+git clone https://github.com/gausby/HTML5-YASnippet-bundle
+
+if [ -e ./snippets/html-mode ]
+then
+    rm -r ./snippets/html-mode
+fi
+
+if [ -e ./snippets/web-mode ]
+then
+    rm -r ./snippets/web-mode
+fi
+
+mv ./HTML5-YASnippet-bundle/snippets/* ./snippets/
+rm -r -f ./HTML5-YASnippet-bundle
