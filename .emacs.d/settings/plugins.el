@@ -16,7 +16,6 @@
                  (not (equal f ".")))
         (add-to-list 'custom-theme-load-path name)))))
 
-
 ;; ;; make the fringe stand out from the background
 ;; (setq solarized-distinct-fringe-background t)
 
@@ -45,12 +44,11 @@
 ;; (setq solarized-height-plus-3 1.0)
 ;; (setq solarized-height-plus-4 1.0)
 
-
 ;; (load-theme 'solarized-dark t t)
 ;; (enable-theme 'solarized-dark)
 
-;; (load-theme 'solarized-gruvbox-dark t t)
-;; (enable-theme 'solarized-gruvbox-dark)
+(load-theme 'solarized-gruvbox-dark t t)
+(enable-theme 'solarized-gruvbox-dark)
 
 ;; (load-theme 'solarized-wombat-dark t t)
 ;; (enable-theme 'solarized-wombat-dark)
@@ -58,14 +56,19 @@
 ;; (enable-theme 'solarized-zenburn)
 ;; (load-theme 'soothe t t)
 ;; (enable-theme 'soothe)
-(load-theme 'nova t t)
-(enable-theme 'nova)
+
+;; (load-theme 'nova t t)
+;; (enable-theme 'nova)
+
 ;; (load-theme 'nord t t)
 ;; (enable-theme 'nord)
 ;; (load-theme 'heroku t t)
 ;; (enable-theme 'heroku)
 ;; (load-theme 'dracula t t)
 ;; (enable-theme 'dracula)
+
+;; (load-theme 'doom-spacegrey t t)
+;; (enable-theme 'doom-spacegrey)
 
 (require 'yasnippet)
 (setq yas-snippet-dirs (list (concat "~/.emacs.d/snippets")))
@@ -78,7 +81,10 @@
 
 ;;ido
 (require 'ido)
+(ido-everywhere 1)
 (require 'ido-vertical-mode)
+(require 'ido-completing-read+)
+(ido-ubiquitous-mode 1)
 (setq ido-use-faces t)
 (set-face-attribute 'ido-vertical-first-match-face nil
                     :background nil
@@ -90,6 +96,8 @@
                     :foreground nil)
 (ido-mode t)
 (ido-vertical-mode t)
+(require 'icomplete)
+(icomplete-mode 1)
 
 ;; autopair
 (require 'autopair)
