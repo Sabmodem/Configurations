@@ -116,9 +116,9 @@
 (add-to-list 'web-mode-indentation-params '("lineup-calls" . nil))
 (add-to-list 'web-mode-indentation-params '("lineup-concats" . nil))
 (add-to-list 'web-mode-indentation-params '("lineup-ternary" . nil))
-(setq web-mode-style-padding 1)
-(setq web-mode-script-padding 1)
-(setq web-mode-block-padding 0)
+(setq web-mode-style-padding 2)
+(setq web-mode-script-padding 2)
+(setq web-mode-block-padding 2)
 (setq web-mode-comment-style 2)
 ;; (set-face-attribute 'web-mode-css-rule-face nil :foreground "Pink3")
 (setq web-mode-enable-auto-pairing t)
@@ -246,5 +246,23 @@
 ;;   (interactive)
 ;;   (ibuffer)
 ;;   (popwin:display-buffer (get-buffer "*Ibuffer*")))
+
+(require 'csharp-mode)
+(add-to-list 'auto-mode-alist '("\\.cs\\'" . csharp-mode))
+
+;; (require 'mic-paren)
+;; (setq paren-delay 0.2)
+;; (setq paren-sexp-mode t)
+;; (set-face-foreground 'paren-face-match nil)
+;; (set-face-background 'paren-face-match "#211")
+;; (setq paren-message-show-linenumber  t)
+;; (paren-activate)
+
+;; (require 'highlight-parentheses)
+
+(require 'highlight-indent-guides)
+;; (highlight-indent-guides-mode)
+(setq highlight-indent-guides-method 'bitmap)
+(add-hook 'prog-mode-hook 'highlight-indent-guides-mode)
 
 (provide 'plugins)

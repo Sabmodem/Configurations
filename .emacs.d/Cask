@@ -30,3 +30,6 @@
 (depends-on "popwin")
 (depends-on "doom-themes")
 (depends-on "ido-completing-read+")
+(depends-on "csharp-mode")
+(depends-on "mic-paren")
+(depends-on "highlight-indent-guides")
