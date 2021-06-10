@@ -7,15 +7,10 @@ while true; do
         LAYOUT="RU";
     fi;
 
-    if [ "$(amixer get Master | grep % | cut -c39-41)" = "off" ]; then
-        mute="off";
-    else
-        mute="on";
-    fi;
-
     let "ram=$(vmstat -s | grep "used m" | cut -c6-14)/1024"
     cpu="$(top -bn1 | awk '/Cpu/ { cpu = 100 - $8 "%" }; END   { print cpu }')"
-    vol="$(amixer get Master | grep % | cut -c22-24)"
+    vol="$(amixer get Master | grep -o "...%.")"
+    mute="$(amixer get Master | grep -Eo "(\[[o][n]\]|\[[o][f][f]\])")"
     time="$( date +"%T" )"
     brightness="$(cat /sys/class/backlight/amdgpu_bl0/brightness)/$(cat /sys/class/backlight/amdgpu_bl0/max_brightness)"
 
@@ -25,6 +20,6 @@ while true; do
         chg="$( acpi | cut -c22-24 )";
     fi;
 
-    xsetroot -name "brt: [ $brightness ] | top: [ $ram Mib | $cpu ] | chg: $chg | $LAYOUT | vol:[ $vol | $mute ] | $time"
+    xsetroot -name "brt: [ $brightness ] | top: [ $ram Mib | $cpu ] | chg: $chg | $LAYOUT | vol: $vol | $mute | $time"
     sleep 1s
 done &
