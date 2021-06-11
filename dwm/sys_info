@@ -13,12 +13,7 @@ while true; do
     mute="$(amixer get Master | grep -Eo "(\[[o][n]\]|\[[o][f][f]\])")"
     time="$( date +"%T" )"
     brightness="$(cat /sys/class/backlight/amdgpu_bl0/brightness)/$(cat /sys/class/backlight/amdgpu_bl0/max_brightness)"
-
-    if [ "$( acpi | cut -c12-14 )" = "Dis" ]; then
-        chg="$( acpi | cut -c25-27 )";
-    else
-        chg="$( acpi | cut -c22-24 )";
-    fi;
+    chg="$( acpi | grep -o "[0-9][0-9]%" )";
 
     xsetroot -name "brt: [ $brightness ] | top: [ $ram Mib | $cpu ] | chg: $chg | $LAYOUT | vol: $vol | $mute | $time"
     sleep 1s
