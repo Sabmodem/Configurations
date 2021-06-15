@@ -9,11 +9,11 @@ while true; do
 
     let "ram=$(vmstat -s | grep "used m" | cut -c6-14)/1024"
     cpu="$(top -bn1 | awk '/Cpu/ { cpu = 100 - $8 "%" }; END   { print cpu }')"
-    vol="$(amixer get Master | grep -o "...%.")"
+    vol="$(amixer get Master | grep -Eo "\[([0-9]|[0-9][0-9]|[0-9][0-9][0-9])%\]")"
     mute="$(amixer get Master | grep -Eo "(\[[o][n]\]|\[[o][f][f]\])")"
     time="$( date +"%T" )"
     brightness="$(cat /sys/class/backlight/amdgpu_bl0/brightness)/$(cat /sys/class/backlight/amdgpu_bl0/max_brightness)"
-    chg="$( acpi | grep -o "[0-9][0-9]%" )";
+    chg="$( acpi | grep -Eo "([0-9]|[0-9][0-9]|[0-9][0-9][0-9])%" )";
 
     xsetroot -name "brt: [ $brightness ] | top: [ $ram Mib | $cpu ] | chg: $chg | $LAYOUT | vol: $vol | $mute | $time"
     sleep 1s
