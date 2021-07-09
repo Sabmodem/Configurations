@@ -1,0 +1,247 @@
+! #include "/home/sabmodem/projects/Xresources-themes/xcolors-DOOMICIDE_darkocean.Xresources" // первая
+! #include "/home/sabmodem/projects/Xresources-themes/xcolors-tlh.Xresources" // зеленая, перспективная
+! #include "/home/sabmodem/projects/Xresources-themes/xcolors-Tartan.Xresources" // чуть светлее первой
+! #include "/home/sabmodem/projects/Xresources-themes/xcolors-tangoesque.Xresources" // стандартная, ничем не выделятется, не режет глаза
+! #include "/home/sabmodem/projects/Xresources-themes/xcolors-swayr.Xresources"
+! #include "/home/sabmodem/projects/Xresources-themes/xcolors-sea-fox.Xresources" // желтая
+! #include "/home/sabmodem/projects/Xresources-themes/xcolors-rosewould.Xresources" // красноватая, прикольная. Можно использовать как базу для создания собственной темы
+! #include "/home/sabmodem/projects/Xresources-themes/xcolors-Rooster_-_SOS.Xresources" // Темная, цвета сливаются, но как база тоже сойдет
+! #include "/home/sabmodem/projects/Xresources-themes/xcolors-paperko.Xresources" // Тоже темная, не особо красивая. С пивком потянет, мб как база сойдет
+! #include "/home/sabmodem/projects/Xresources-themes/xcolors-OK100_-_Matrix.Xresources" // Полностью зеленая, хорошо видно надписи
+! #include "/home/sabmodem/projects/Xresources-themes/xcolors-nvert.Xresources" // Темно-желтая, видно надписи
+! #include "/home/sabmodem/projects/Xresources-themes/xcolors-medium-roast.Xresources" // Красная, не видно цвета
+! #include "/home/sabmodem/projects/Xresources-themes/xcolors-jeans.Xresources"
+
+! #include "/home/sabmodem/projects/3345657/.Xdefaults"
+
+
+! ! Gray theme from constructor
+! ! special
+! *.foreground:   #b9b9b9
+! *.background:   #101010
+! *.cursorColor:  #b9b9b9
+
+! ! black
+! *.color0:       #101010
+! *.color8:       #525252
+
+! ! red
+! *.color1:       #7c7c7c
+! *.color9:       #7c7c7c
+
+! ! green
+! *.color2:       #8e8e8e
+! *.color10:      #8e8e8e
+
+! ! yellow
+! *.color3:       #a0a0a0
+! *.color11:      #a0a0a0
+
+! ! blue
+! *.color4:       #686868
+! *.color12:      #686868
+
+! ! magenta
+! *.color5:       #747474
+! *.color13:      #747474
+
+! ! cyan
+! *.color6:       #868686
+! *.color14:      #868686
+
+! ! white
+! *.color7:       #b9b9b9
+! *.color15:      #f7f7f7
+
+
+
+! ! Done color cheme. Do not delete! 1
+! *.colorUL	:	#852437
+! *.foreground    :       #78A2B7
+! *.background	:	#2B2B2B
+! *.cursorColor	:	#fae3bb
+! !black
+! *.color0	:	#2E3436
+! *.color8	:	#555753
+! !red
+! *.color1	:	#c8bba0
+! *.color9	:	#b0935a
+! !green
+! *.color2	:	#A9F5A9
+! *.color10	:	#81F781
+! !yellow
+! *.color3        :	#CED23A
+! *.color11	:	#FFCF40
+! !blue
+! *.color4	:	#b08d94
+! *.color12	:	#b05264
+! !magenta
+! *.color5	:	#8a6e74
+! *.color13	:	#8a3243
+! !cyan
+! *.color6	:	#855d65
+! *.color14	:	#852437
+! !white
+! *.color7	:	#fae3bb
+! *.color15	:	#fabcc8
+
+
+! ! Done color cheme. Do not delete! 2
+! ! special
+! *.colorUL	:	#852437
+! *.foreground    :       #78A2B7
+! *.background:   #2b2b2b
+! *.cursorColor:  #666699
+
+! ! black
+! *.color0:       #2e3436
+! *.color8:       #555753
+
+! ! red
+! *.color1:       #0099cc
+! *.color9:       #00ccff
+
+! ! green
+! *.color2:       #a9f5a9
+! *.color10:      #81f781
+
+! ! yellow
+! *.color3:       #3366cc
+! *.color11:      #6699ff
+
+! ! blue
+! *.color4:       #b08d94
+! *.color12:      #b05264
+
+! ! magenta
+! *.color5:       #8a6e74
+! *.color13:      #8a3243
+
+! ! cyan
+! *.color6:       #855d65
+! *.color14:      #852437
+
+! ! white
+! *.color7:       #99cccc
+! *.color15:      #ccffff
+
+
+
+! !!!!!!! Current
+urxvt*transparent: true
+urxvt*shading: 30
+
+! special
+*.foreground:   #78a2b7
+*.background:   #2b2b2b
+*.cursorColor:  #78a2b7
+
+! black
+*.color0:       #2e3436
+*.color8:       #555753
+
+! red
+*.color1:       #0099cc
+*.color9:       #00ccff
+
+! green
+*.color2:       #a9f5a9
+*.color10:      #81f781
+
+! yellow
+*.color3:       #3366cc
+*.color11:      #6699ff
+
+! blue
+*.color4:       #968d94
+*.color12:      #b05264
+
+! magenta
+*.color5:       #6e6e74
+*.color13:      #8a3243
+
+! cyan
+*.color6:       #645d65
+*.color14:      #852437
+
+! white
+*.color7:       #99cccc
+*.color15:      #ccffff
+
+
+! ! special
+! *.foreground:   #ee204d
+! *.background:   #020203
+! *.cursorColor:  #ee204d
+
+! ! black
+! *.color0:       #ee204d
+! *.color8:       #ee204d
+
+! ! red
+! *.color1:       #ee204d
+! *.color9:       #ee204d
+
+! ! green
+! *.color2:       #ee204d
+! *.color10:      #ee204d
+
+! ! yellow
+! *.color3:       #ee204d
+! *.color11:      #ee204d
+
+! ! blue
+! *.color4:       #ee204d
+! *.color12:      #ee204d
+
+! ! magenta
+! *.color5:       #ee204d
+! *.color13:      #ee204d
+
+! ! cyan
+! *.color6:       #ee204d
+! *.color14:      #ee204d
+
+! ! white
+! *.color7:       #ee204d
+! *.color15:      #ee204d
+
+
+
+
+
+URxvt.font: terminus-14
+URxvt.boldFont: terminus-14
+URxvt.italicFont: terminus-14
+URxvt.boldItalicfont: terminus-14
+
+URxvt.letterSpace: 0
+URxvt.lineSpace: 0
+URxvt.geometry: 92x24
+URxvt.internalBorder: 24
+URxvt.cursorBlink: true
+URxvt.cursorUnderline: false
+URxvt.saveline: 10000
+URxvt.scrollBar: false
+URxvt.scrollBar_right: false
+URxvt.urgentOnBell: true
+URxvt.depth: 24
+URxvt.iso14755: false
+
+URxvt.secondaryScreen: 1
+URxvt.secondaryScroll: 0
+
+! Не прокручивать при выводе
+URxvt*scrollTtyOutput: false
+
+! прокручивать по отношению к буферу (прокрутка мышью или Shift+Page Up)
+URxvt*scrollWithBuffer: true
+
+! прокрутка по нажатию клавиши
+URxvt*scrollTtyKeypress: true
+
+URxvt.perl-ext-common: default,matcher
+URxvt.url-launcher: /usr/bin/xdg-open
+URxvt.matcher.button: 1
+
+! URxvt.matcher.rend.0: Uline Bold fg5

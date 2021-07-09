@@ -15,3 +15,4 @@ ${QEMU} \
     -vga std \
     -net nic,model=virtio \
     -net user,hostfwd=tcp::2222-:22 \
+    -hda /home/sabmodem/новая.iso \
