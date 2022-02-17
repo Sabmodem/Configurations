@@ -37,7 +37,7 @@ zstyle ':completion:*' use-compctl false
 zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
 zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 PATH=$HOME/opt:$PATH
-PATH=$HOME/opt/cask/bin:$PATH
+PATH=$HOME/soft/cask/bin:$PATH
 PATH=/usr/pgadmin4/bin:$PATH
 PATH=/sbin:$PATH
 
@@ -48,6 +48,7 @@ alias brt20='sudo tee /sys/class/backlight/amdgpu_bl0/brightness <<< 20'
 alias brt100='sudo tee /sys/class/backlight/amdgpu_bl0/brightness <<< 100'
 alias brt200='sudo tee /sys/class/backlight/amdgpu_bl0/brightness <<< 200'
 alias nmrestart='sudo systemctl restart NetworkManager'
+alias wakeapis='wakeonlan -i 188.17.147.216 -p 9 4c:cc:6a:89:1b:5e'
 
 export PATH=$PATH:/var/lib/node/bin:$HOME/go/bin
 export GOPATH=$HOME/projects/gocode
